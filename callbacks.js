@@ -1,6 +1,8 @@
-function loadScript(src) {
-    setTimeout(()=> console.log("helllow form indise"))
-    console.log("Hello worlddd");
-}
-loadScript('/my/script.js');
-console.log("Hello world");
+let promise = new Promise(function (resolve, reject) {
+    // setTimeout(()=> resolve("After time Out"),1000);
+    setTimeout(() => reject("After time Out"), 1000);
+});
+
+promise.then(value => console.log(value + "-fulfilled"))
+    .catch(error => console.log(error + "-error"))
+    .finally(() => console.log("all done"));
