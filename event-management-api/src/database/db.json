@@ -1,0 +1,36 @@
+{
+  "events": [
+    {
+      "id": 2227456052,
+      "name": "Tommy V Event",
+      "type": "For Time",
+      "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
+      "createdAt": "2024-02-18, 22:05:12",
+      "updatedAt": "2024-02-18, 22:05:12"
+    },
+    {
+      "id": 5817445014,
+      "name": "Dead Push-Ups Event",
+      "type": "AMRAP 10",
+      "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
+      "createdAt": "2024-02-18, 22:05:12",
+      "updatedAt": "2024-02-18, 22:05:12"
+    },
+    {
+      "id": 7954487603,
+      "name": "Heavy DT Event",
+      "type": "5 Rounds For Time",
+      "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
+      "createdAt": "2024-02-18, 22:05:12",
+      "updatedAt": "2024-02-18, 22:05:12"
+    },
+    {
+      "name": "Mountain Marathon Challenge",
+      "type": "Marathon",
+      "description": "The Mountain Marathon Challenge is an exhilarating event that tests endurance and strength across mountainous terrain. Participants will navigate through challenging trails and experience breathtaking views.",
+      "id": "d64618ee-b11e-46e6-97d5-e2ad09a3cd64",
+      "createdAt": "2/18/2024, 10:49:52 PM",
+      "updatedAt": "2/18/2024, 10:49:52 PM"
+    }
+  ]
+}
