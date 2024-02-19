@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "id": 2227456052,
+      "id": "2227456052",
       "name": "Tommy V Event",
       "type": "For Time",
       "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
@@ -9,7 +9,7 @@
       "updatedAt": "2024-02-18, 22:05:12"
     },
     {
-      "id": 5817445014,
+      "id": "5817445014",
       "name": "Dead Push-Ups Event",
       "type": "AMRAP 10",
       "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
@@ -17,7 +17,7 @@
       "updatedAt": "2024-02-18, 22:05:12"
     },
     {
-      "id": 7954487603,
+      "id": "7954487603",
       "name": "Heavy DT Event",
       "type": "5 Rounds For Time",
       "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",

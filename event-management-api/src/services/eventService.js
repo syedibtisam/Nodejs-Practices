@@ -3,12 +3,29 @@ const events = require("../database/event");
 const { v4: uuid } = require("uuid");
 
 function getAllEvents() {
-    const allEvents = events.getAllEvents();
-    return allEvents;
+    try {
+        
+        const allEvents = events.getAllEvents();
+        return allEvents;
+
+    } catch (error) {
+
+        throw error
+
+    }
+
 }
 function getOneEvent(eventId) {
-    const singleEvent = events.getOneEvent(eventId);
-    return singleEvent;
+    try {
+
+        const singleEvent = events.getOneEvent(eventId);
+        return singleEvent;
+
+    } catch (error) {
+        
+        throw error
+    }
+
 }
 function createNewevent(newEvent) {
     // Updating the payload: Adding id, createdAt and updatedAt 
@@ -21,20 +38,40 @@ function createNewevent(newEvent) {
 
     // updated object going to database layer to update the database
     try {
+
         const createdEvent = events.createdNewEvent(eventToInsert);
         return createdEvent;
+
     } catch (error) {
         throw error;
     }
 
 }
 function updateOneEvent(eventId, eventChanges) {
-    const updatedEvent = events.updateOneEvent(eventId, eventChanges);
-    return updatedEvent
+    try {
+        
+        const updatedEvent = events.updateOneEvent(eventId, eventChanges);
+        return updatedEvent;
+
+    } catch (error) {
+        
+        throw error;
+
+    }
+
 }
 function deleteOneEvent(eventId) {
-    const deletedEvent = events.deleteOneEvent(eventId);
-    return deletedEvent
+    try {
+
+        const deletedEvent = events.deleteOneEvent(eventId);
+        return deletedEvent;
+
+    } catch (error) {
+        
+        throw error;
+        
+    }
+
 }
 
 module.exports = {
