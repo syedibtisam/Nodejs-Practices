@@ -6,8 +6,9 @@ function getAllEvents(){
     const allEvents = events.getAllEvents();
     return allEvents;
 }
-function getOneEvent() {
-    return
+function getOneEvent(eventId) {
+    const singleEvent = events.getOneEvent(eventId);
+    return singleEvent;
 }
 function createNewevent(newEvent) {
     // Updating the payload: Adding id, createdAt and updatedAt 
@@ -23,8 +24,9 @@ function createNewevent(newEvent) {
 
     return createdEvent
 }
-function updateOneEvent() {
-    return
+function updateOneEvent(eventId, eventChanges) {
+    const updatedEvent = events.updateOneEvent(eventId, eventChanges);
+    return updatedEvent
 }
 function deleteOneEvent() {
     return

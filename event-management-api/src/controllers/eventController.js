@@ -5,8 +5,13 @@ function getAllEvents(req, res) {
     res.status(201).send({ status: "OK", data: allEvents });
 }
 function getOneEvent(req, res) {
-    const event = eventService.getOneEvent();
-    res.send("getOneEvent");
+    // validation check: If eventId exists
+    if (!req.params.eventId) {
+        return res.status(201).send({ status: "EventId doest not exist", data: "" });
+    }
+
+    const event = eventService.getOneEvent(req.params.eventId);
+    res.status(201).send({ status: "OK", data: event });
 }
 function createNewevent(req, res) {
     // Getting event details in JSON
@@ -14,7 +19,7 @@ function createNewevent(req, res) {
 
     // validation check: Ensuring all required data is present
     if (!body.name || !body.type || !body.description) {
-        return res.status(201).send({status:"Invalid Data"});
+        return res.status(201).send({ status: "Invalid Data" });
     }
 
     // Creating event object
@@ -27,17 +32,41 @@ function createNewevent(req, res) {
     // Sending to service layer to create and update the database
     const createdNewEvent = eventService.createNewevent(newEvent);
 
-    res.status(201).send({status:"OK",data:createdNewEvent});
+    res.status(201).send({ status: "OK", data: createdNewEvent });
 }
+
 function updateOneEvent(req, res) {
-    const updatedEvent = eventService.updateOneEvent();
-    res.send("updateOneEvent");
+    // validation check: If eventId exists
+    if (!req.params.eventId) {
+        return res.status(201).send({ status: "EventId doest not exist in params", data: "" });
+    }
+
+    // validation check: checking allowed variables for this type of database
+    const validVariables = ["name","type","description"];
+    if(!allowedVariables(req.body,validVariables)){
+        return res.status(201).send({ status: "Attributes doest not match", data: "" });
+    }
+
+    const updatedEvent = eventService.updateOneEvent(req.params.eventId, req.body);
+
+    if (updatedEvent === -1){
+        return res.status(201).send({ status: "EventId doest not exist in database", data: "" });
+    }
+    res.status(201).send({ status: "OK", data: updatedEvent });
+
 }
 function deleteOneEvent(req, res) {
     const deletedEvent = eventService.deleteOneEvent();
     res.send("deleteOneEvent");
 }
 
+function allowedVariables(body,validVariables){
+    const keys = Object.keys(body);
+    for (key of keys){
+        if(!validVariables.includes(key)) return false;
+    }
+    return true;
+}
 module.exports = {
     getAllEvents,
     getOneEvent,
