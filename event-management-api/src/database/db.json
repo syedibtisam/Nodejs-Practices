@@ -23,14 +23,6 @@
       "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
       "createdAt": "2024-02-18, 22:05:12",
       "updatedAt": "2024-02-18, 22:05:12"
-    },
-    {
-      "name": "testing",
-      "type": "anything",
-      "description": "any",
-      "id": "d64618ee-b11e-46e6-97d5-e2ad09a3cd64",
-      "createdAt": "2/18/2024, 10:49:52 PM",
-      "updatedAt": "2/19/2024, 12:22:30 AM"
     }
   ]
 }

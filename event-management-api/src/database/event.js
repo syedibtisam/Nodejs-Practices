@@ -45,9 +45,23 @@ function updateOneEvent(eventId, eventChanges) {
     updateDatabase(eventsDB);
     return updatedEvent;
 }
+function deleteOneEvent(eventId) {
+    // Validation check: Getting the event based on the id
+    const eventIndexForDeletion = eventsDB.events.findIndex(
+        (event) => event.id === eventId
+    );
+    if (eventIndexForDeletion === -1) {
+        return -1;
+    }
+    const toDelete = eventsDB.events[eventIndexForDeletion]
+    eventsDB.events.splice(eventIndexForDeletion, 1);
+    updateDatabase(eventsDB);
+    return toDelete;
+}
 module.exports = {
     getAllEvents,
     createdNewEvent,
     getOneEvent,
-    updateOneEvent
+    updateOneEvent,
+    deleteOneEvent
 }

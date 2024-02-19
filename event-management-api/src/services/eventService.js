@@ -28,8 +28,9 @@ function updateOneEvent(eventId, eventChanges) {
     const updatedEvent = events.updateOneEvent(eventId, eventChanges);
     return updatedEvent
 }
-function deleteOneEvent() {
-    return
+function deleteOneEvent(eventId) {
+    const deletedEvent = events.deleteOneEvent(eventId);
+    return deletedEvent
 }
 
 module.exports = {
