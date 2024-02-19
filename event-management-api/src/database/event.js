@@ -6,16 +6,27 @@ function getAllEvents() {
 
 function createdNewEvent(newEvent) {
     // Validation check: If event already exists
-    const isAlreadyAdded =
+    const isAlreadyExist =
         eventsDB.events.findIndex((event) => event.name === newEvent.name) > -1;
-    if (isAlreadyAdded) {
-        return;
+    if (isAlreadyExist) {
+        throw {
+            status: 400,
+            message: `Event with the name ${newEvent.name} already exists`
+        };
     }
-    // Pusing new event into DB
-    eventsDB.events.push(newEvent);
-    updateDatabase(eventsDB);
 
-    return newEvent;
+    // Pusing new event into DB
+    try {
+        eventsDB.events.push(newEvent);
+        updateDatabase(eventsDB);
+        return newEvent;
+    } catch (error) {
+        throw { 
+            status: 500, 
+            message: error?.message || error
+        };
+    }
+
 }
 function getOneEvent(eventId) {
     const event = eventsDB.events.find((event) => event.id === eventId);

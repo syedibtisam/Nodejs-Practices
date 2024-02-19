@@ -2,7 +2,7 @@ const events = require("../database/event");
 
 const { v4: uuid } = require("uuid");
 
-function getAllEvents(){
+function getAllEvents() {
     const allEvents = events.getAllEvents();
     return allEvents;
 }
@@ -17,12 +17,16 @@ function createNewevent(newEvent) {
         id: uuid(),
         createdAt: new Date().toLocaleString("en-US", { timeZone: "Europe/London" }),
         updatedAt: new Date().toLocaleString("en-US", { timeZone: "Europe/London" }),
-      };
+    };
 
     // updated object going to database layer to update the database
-    const createdEvent = events.createdNewEvent(eventToInsert);
+    try {
+        const createdEvent = events.createdNewEvent(eventToInsert);
+        return createdEvent;
+    } catch (error) {
+        throw error;
+    }
 
-    return createdEvent
 }
 function updateOneEvent(eventId, eventChanges) {
     const updatedEvent = events.updateOneEvent(eventId, eventChanges);

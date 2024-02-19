@@ -1,8 +1,19 @@
 const eventService = require("../services/eventService");
 
 function getAllEvents(req, res) {
-    const allEvents = eventService.getAllEvents();
-    res.status(201).send({ status: "OK", data: allEvents });
+    try {
+        const allEvents = eventService.getAllEvents();
+        res.status(201).send({ status: "OK", data: allEvents });
+    } catch (error) {
+        res.status(400).send({
+            status:"ERROR",
+            error:{
+                code:400,
+                message:"Error in getting All events from database.",
+            }
+        });
+    }
+
 }
 function getOneEvent(req, res) {
     // validation check: If eventId exists
@@ -19,7 +30,7 @@ function createNewevent(req, res) {
 
     // validation check: Ensuring all required data is present
     if (!body.name || !body.type || !body.description) {
-        return res.status(201).send({ status: "Invalid Data" });
+        return res.status(400).send({ status: "FAILED", data: { error: "one of the following keys are missing in request body: name, type, description" } });
     }
 
     // Creating event object
@@ -30,9 +41,13 @@ function createNewevent(req, res) {
     }
 
     // Sending to service layer to create and update the database
-    const createdNewEvent = eventService.createNewevent(newEvent);
+    try {
+        const createdNewEvent = eventService.createNewevent(newEvent);
+        res.status(201).send({ status: "OK", data: createdNewEvent });
+    } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: { error: error?.message || error } });
+    }
 
-    res.status(201).send({ status: "OK", data: createdNewEvent });
 }
 
 function updateOneEvent(req, res) {

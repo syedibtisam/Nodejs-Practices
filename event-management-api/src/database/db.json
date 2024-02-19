@@ -23,6 +23,14 @@
       "description": "A challenging and rewarding event designed to test your limits and improve your capabilities.",
       "createdAt": "2024-02-18, 22:05:12",
       "updatedAt": "2024-02-18, 22:05:12"
+    },
+    {
+      "name": "Mountain Marathon Challenge",
+      "type": "Marathon",
+      "description": "The Mountain Marathon Challenge is an exhilarating event that tests endurance and strength across mountainous terrain. Participants will navigate through challenging trails and experience breathtaking views.",
+      "id": "d9908b20-b124-4e81-9882-b2a6507f60db",
+      "createdAt": "2/19/2024, 12:56:16 AM",
+      "updatedAt": "2/19/2024, 12:56:16 AM"
     }
   ]
 }
